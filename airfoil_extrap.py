@@ -59,8 +59,12 @@ class Extrapolation:
         self.cm = self.cm[cl_min_index:cl_max_index]
 
     def correction_3D(self, r_over_R, chord_over_r, tsr):
-
-
+        polar1 = Polar(self.Re, self.alpha, self.cl, self.cd, self.cm)
+        af = Airfoil([polar1])
+        r_over_R = float(r_over_R)
+        chord_over_r = float(chord_over_r)
+        tsr = float(tsr)
+        af3D = af.correction3D()
 
     def polar_extrap(self, file_out=None, plot=False):
         # Takes an output name for new extrapolated polar points.
@@ -83,6 +87,6 @@ class Extrapolation:
             plt.show()
 
 if __name__ == '__main__':
-    main = Extrapolation('S830_output.txt')
+    main = Extrapolation('S818_output3.txt')
     main.set_up()
     main.polar_extrap(plot=True)

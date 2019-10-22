@@ -49,7 +49,7 @@ class Performance_coef(unittest.TestCase):
         """
         self.Rhub = 1.5
         self.Rtip = 63
-        self.r = np.array([self.Rtip*0.045503175, self.Rtip*0.088888889, self.Rtip*0.132274603, self.Rtip*0.186507937, self.Rtip*0.251587302, self.Rtip*0.316666667,                         self.Rtip*0.381746032, self.Rtip*0.446825397, self.Rtip*0.511904762, self.Rtip*0.576984127, self.Rtip*0.642063492, self.Rtip*0.707142857,                         self.Rtip*0.772222222, self.Rtip*0.837301587, self.Rtip*0.891534921, self.Rtip*0.934920635, self.Rtip*0.978306349])
+        self.r = np.array([self.Rtip*0.045503175, self.Rtip*0.088888889, self.Rtip*0.132274603, self.Rtip*0.186507937, self.Rtip*0.251587302,       self.Rtip*0.316666667, self.Rtip*0.381746032, self.Rtip*0.446825397, self.Rtip*0.511904762, self.Rtip*0.576984127, self.Rtip*0.642063492, self.Rtip*0.707142857, self.Rtip*0.772222222, self.Rtip*0.837301587, self.Rtip*0.891534921, self.Rtip*0.934920635, self.Rtip*0.978306349])
 
         afinit = CCAirfoil.initFromAerodynFile  # just for shorthand
         basepath = os.path.join(os.path.dirname(os.path.realpath(__file__)), "5MW_AFFiles/")
@@ -74,8 +74,10 @@ class Performance_coef(unittest.TestCase):
 
         # chord = np.array([3.542, 3.854, 4.167, 4.557, 4.652, 4.458, 4.249, 4.007, 3.748,
         #                 3.502, 3.256, 3.010, 2.764, 2.518, 2.313, 2.086, 1.419])
+
         def chords(self, r, Cl):
             c = ((16*pi*self.Rtip)/(9*3*Cl))
+
         chord = np.array([self.Rtip*0.056222222, self.Rtip*0.061174603, self.Rtip*0.066142857])
         theta = np.array([13.308, 13.308, 13.308, 13.308, 11.480, 10.162, 9.011, 7.795,
                         6.544, 5.361, 4.188, 3.125, 2.319, 1.526, 0.863, 0.370, 0.106])

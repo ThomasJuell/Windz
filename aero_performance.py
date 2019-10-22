@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import re
 
-with open('C:/Users/Thomas/OneDrive/Tieto/Scripts/5MW_AFFiles/NACA64_A17.dat', 'r') as f:
+with open('C:/Users/Thomas/Documents/S818_output3_extrap.txt', 'r') as f:
     data = f.readlines()
 
 alpha, cl, cd, cm = [], [], [], []
@@ -25,6 +25,7 @@ for i in range(0,len(cl)):
 
 print('Maximum lift coefficient is {} at AOA {}'.format(max(cl), alpha[cl.index(max(cl))]))
 print('Maximum drag coefficient is {} at AOA {}'.format(max(cd), alpha[cd.index(max(cd))]))
+print('Maximum lift/drag ratio is {} at AOA {}'.format(max(l_d_ratio), alpha[l_d_ratio.index(max(l_d_ratio))]))
 
 fig, axes = plt.subplots(2,2)
 
