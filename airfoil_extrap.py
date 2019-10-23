@@ -58,13 +58,40 @@ class Extrapolation:
         self.cd = self.cd[cl_min_index:cl_max_index]
         self.cm = self.cm[cl_min_index:cl_max_index]
 
-    def correction_3D(self, r_over_R, chord_over_r, tsr):
+    def correction_3D(self, r_over_R, chord_over_r, tsr, file_out=None, plot=False):
+        if file_out is None:
+            name, ext = os.path.splitext(self.file_in)
+            file_out = name + '_3D' + ext
+
         polar1 = Polar(self.Re, self.alpha, self.cl, self.cd, self.cm)
         af = Airfoil([polar1])
         r_over_R = float(r_over_R)
         chord_over_r = float(chord_over_r)
         tsr = float(tsr)
-        af3D = af.correction3D()
+        af3D = af.correction3D(r_over_R, chord_over_r, tsr)
+        af3D.writeToAerodynFile(file_out)
+
+        if plot == True:
+            for p, p3D in zip(af.polars, af3D.polars):
+                # plt.figure(figsize=(6.0, 2.6))
+                # plt.subplot(121)
+                plt.figure()
+                plt.plot(p.alpha, p.cl, 'k', label='2D')
+                plt.plot(p3D.alpha, p3D.cl, 'r', label='3D')
+                plt.xlabel('angle of attack (deg)')
+                plt.ylabel('lift coefficient')
+                plt.legend(loc='lower right')
+
+                # plt.subplot(122)
+                plt.figure()
+                plt.plot(p.alpha, p.cd, 'k', label='2D')
+                plt.plot(p3D.alpha, p3D.cd, 'r', label='3D')
+                plt.xlabel('angle of attack (deg)')
+                plt.ylabel('drag coefficient')
+                plt.legend(loc='upper center')
+
+            plt.tight_layout()
+            plt.show()
 
     def polar_extrap(self, file_out=None, plot=False):
         # Takes an output name for new extrapolated polar points.
@@ -89,4 +116,5 @@ class Extrapolation:
 if __name__ == '__main__':
     main = Extrapolation('S818_output3.txt')
     main.set_up()
-    main.polar_extrap(plot=True)
+    main.correction_3D(0.5, 0.09, 3.8, plot=True)
+    # main.polar_extrap(plot=True)
