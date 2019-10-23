@@ -114,7 +114,7 @@ class Extrapolation:
             plt.show()
 
 if __name__ == '__main__':
-    main = Extrapolation('S818_output3.txt')
+    main = Extrapolation('S831_output.txt')
     main.set_up()
-    main.correction_3D(0.5, 0.09, 3.8, plot=True)
-    # main.polar_extrap(plot=True)
+    # main.correction_3D(0.5, 0.09, 3.8, plot=True)
+    main.polar_extrap(plot=True)
