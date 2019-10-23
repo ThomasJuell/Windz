@@ -86,7 +86,7 @@ class output:
 
 if __name__ == "__main__":
     session = session()
-    session.send('load C:/Users/Thomas/OneDrive/Tieto/Airfoils/S818.dat')
+    session.send('load C:/Users/Thomas/OneDrive/Tieto/Airfoils/S831.dat')
     session.send('mdes')
     session.send('filt')
     session.send('exec')
@@ -102,7 +102,7 @@ if __name__ == "__main__":
     session.send('re 2500000')
     session.send('visc 2500000')
     session.send('pacc')
-    session.send('C:/Users/Thomas/OneDrive/Tieto/Airfoils/xfoil/S818_output3.txt')
+    session.send('C:/Users/Thomas/OneDrive/Tieto/Airfoils/xfoil/S831_output.txt')
     session.send(' ')
     time.sleep(2)
     iter_range = np.linspace(0,-20,81)

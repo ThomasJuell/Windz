@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from wisdem.ccblade import CCAirfoil, CCBlade
-
+from blade_geometry import blade_geometry
 
 class Performance_coef(unittest.TestCase):
     def setup(self):
@@ -81,6 +81,7 @@ class Performance_coef(unittest.TestCase):
         chord = np.array([self.Rtip*0.056222222, self.Rtip*0.061174603, self.Rtip*0.066142857])
         theta = np.array([13.308, 13.308, 13.308, 13.308, 11.480, 10.162, 9.011, 7.795,
                         6.544, 5.361, 4.188, 3.125, 2.319, 1.526, 0.863, 0.370, 0.106])
+               
 
         B = 3  # number of blades
         # atmosphere
