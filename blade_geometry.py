@@ -34,6 +34,6 @@ if __name__ == '__main__':
     tsp = 7.55
     c_max = 5
     Cl = [1.3871, 1.3871, 1.3871, 1.3871, 1.464, 1.464, 1.464, 1.464, 1.4509, 1.4509, 1.4509, 1.4509, 1.4509, 1.4509]
-    chord = blade_geometry(Rtip, r, B, Cl, tsp, c_max, plot=True)
+    chord = np.array(blade_geometry(Rtip, r, B, Cl, tsp, c_max, plot=True))
     print(chord)
 
