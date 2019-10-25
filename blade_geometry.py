@@ -11,7 +11,7 @@ def blade_geometry(Rtip, r, B, Cl, tsr, c_max, plot=False):
         chord.append(Rtip*circ_af_coef[i])
     # The three first points are the circular profiles and has 0 lift, therefor bypassing with i+3
     for i in range(len(r)-3):
-        c = (1/B) * ((16*pi*r[i+3])/Cl[i]) * sin((1/3) * atan(Rtip/(tsp*r[i+3])))**2
+        c = (1/B) * ((16*pi*r[i+3])/Cl[i]) * sin((1/3) * atan(Rtip/(tsr*r[i+3])))**2
         if c > c_max:
             chord.append(c_max)
         else:
