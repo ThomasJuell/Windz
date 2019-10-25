@@ -61,7 +61,7 @@ class Performance_coef(unittest.TestCase):
         hubHt = (self.Rtip*2)*0.92
         nSector = 8
 
-        tsp = 7.55
+        tsr = 7.55
         # max chord length
         c_max = 5
         # lift coefficients for the given airfoils
@@ -90,7 +90,7 @@ class Performance_coef(unittest.TestCase):
         # chord = np.array([3.542, 3.854, 4.167, 4.557, 4.652, 4.458, 4.249, 4.007, 3.748,
         #                 3.502, 3.256, 3.010, 2.764, 2.518, 2.313, 2.086, 1.419])
 
-        chord = np.array(blade_geometry(self.Rtip, self.r, B, Cl, tsp, c_max, plot=False))
+        chord = np.array(blade_geometry(self.Rtip, self.r, B, Cl, tsr, c_max, plot=False))
 
         theta = np.array([13.308, 13.308, 13.308, 13.308, 11.480, 10.162, 9.011, 7.795,
                         6.544, 5.361, 4.188, 3.125, 2.319, 1.526, 0.863, 0.370, 0.106])
